@@ -1,0 +1,233 @@
+/* horse.css - Design from User Images */
+
+body {
+    background-image: none !important;
+    background-color: #E5E0D8; /* Light yellowish background as seen in image */
+    color: #1a1a1a;
+}
+
+.horse-hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/Horse Ride.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 0;
+    color: var(--white);
+}
+
+.hero-content-left {
+    text-align: left;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.breadcrumbs {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.breadcrumbs a { color: inherit; text-decoration: none; }
+.breadcrumbs .current { font-weight: 600; color: #fff; }
+
+.horse-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+/* Quick Info Grid */
+.quick-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: -3rem; /* Overlap with hero */
+    margin-bottom: 4rem;
+}
+
+.info-card {
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.05);
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    background: #f5f5f5;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.info-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Main Grid Layout */
+.selection-booking-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.section-title-group h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-title-group p {
+    color: #666;
+    margin-bottom: 2.5rem;
+}
+
+/* Experience List */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.exp-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.exp-card.active {
+    border-color: var(--primary);
+    box-shadow: 0 0.5rem 1.5rem rgba(197, 160, 89, 0.1);
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.exp-header h3 { font-size: 1.25rem; }
+.exp-price { font-size: 1.5rem; font-weight: 800; color: #1a1a1a; }
+
+.exp-desc { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+.exp-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: #888;
+    align-items: center;
+}
+
+.per-person { margin-left: auto; }
+
+/* Content Sections */
+.card-box {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card-box h3 { margin-bottom: 1.5rem; font-size: 1.5rem; }
+.card-box p { color: #444; line-height: 1.7; margin-bottom: 1.5rem; }
+
+.check-list, .dot-list {
+    list-style: none;
+    padding: 0;
+}
+
+.check-list li::before { content: "•"; color: var(--primary); font-weight: bold; margin-right: 0.75rem; }
+.dot-list li::before { content: "•"; color: #888; margin-right: 0.75rem; }
+
+.check-list li, .dot-list li { margin-bottom: 0.75rem; color: #555; }
+
+/* Booking Sidebar */
+.booking-sidebar {
+    position: sticky;
+    top: 6rem;
+}
+
+.booking-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.08);
+}
+
+.booking-card h3 { margin-bottom: 2rem; font-size: 1.8rem; }
+
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background: #fcfcfc;
+}
+
+.input-hint { font-size: 0.75rem; color: #999; margin-top: 0.5rem; display: block; }
+
+.price-summary {
+    margin: 2rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.price-line { display: flex; justify-content: space-between; color: #666; margin-bottom: 1rem; }
+.total-line { display: flex; justify-content: space-between; font-weight: 800; font-size: 1.4rem; color: #1a1a1a; }
+
+.btn-book-full {
+    width: 100%;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 1rem;
+}
+
+.btn-book-full:hover { background: #333; }
+
+.cancellation-policy {
+    font-size: 0.75rem;
+    color: #999;
+    text-align: center;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 64rem) {
+    .quick-info-grid { grid-template-columns: 1fr; margin-top: 2rem; }
+    .selection-booking-grid { grid-template-columns: 1fr; }
+    .booking-sidebar { position: static; }
+    .horse-hero h1 { font-size: 2.5rem; }
+}
