@@ -1,8 +1,8 @@
-/* style.css - Restaurant Design Refined */
+/* res.css - Full Restaurant Design from User Images */
 
 body {
     background-image: none !important;
-    background-color: #E5E0D8; /* Yellowish background */
+    background-color: #E5E0D8; /* Main yellowish background */
     color: var(--dark);
 }
 
@@ -39,22 +39,21 @@ body {
     font-weight: 800;
 }
 
-/* Menu Section - Now with body background */
-.menu-section {
-    padding: 2rem 0 5rem;
-}
-
+/* Filters */
 .menu-filters {
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: left;
     margin-bottom: 3rem;
     flex-wrap: wrap;
+    max-width: var(--max-w);
+    margin-left: auto;
+    margin-right: auto;
     padding: 0 1.25rem;
 }
 
 .filter-btn {
-    background: #fff;
+    background: #f0ebe4;
     border: none;
     padding: 0.6rem 1.5rem;
     border-radius: var(--r-pill);
@@ -63,10 +62,9 @@ body {
     font-size: 0.9rem;
     color: var(--dark);
     transition: 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.filter-btn.active, .filter-btn:hover {
+.filter-btn.active {
     background: var(--primary);
     color: var(--white);
 }
@@ -75,18 +73,18 @@ body {
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
     max-width: var(--max-w);
-    margin: 0 auto;
+    margin: 0 auto 5rem;
     padding: 0 1.25rem;
 }
 
 .menu-card {
     display: flex;
     flex-direction: column;
-    background: #fff; /* White cards */
-    border-radius: 1.5rem;
-    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.08);
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.05);
     overflow: hidden;
     transition: transform 0.3s;
 }
@@ -99,52 +97,83 @@ body {
     height: 18rem;
 }
 
-.menu-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.menu-img { width: 100%; height: 100%; object-fit: cover; }
 
-.badge {
+.badge.veg {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 700;
+    background: #27ae60;
     color: #fff;
-    z-index: 1;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
 }
 
-.badge.veg { background: #27ae60; }
-
 .menu-info {
-    padding: 1.5rem;
+    padding: 2rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: #fff; /* White info box */
 }
 
-.menu-info h3 {
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-    color: var(--dark);
+.menu-info h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #1a1a1a; }
+.menu-info p { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; }
+.price { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-top: auto; }
+
+/* About Section */
+.alternate-bg { background-color: #f0ebe4; }
+.small-container { max-width: 50rem; margin: 0 auto; }
+.about-kitchen h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: #1a1a1a; }
+.about-kitchen .intro { font-weight: 600; color: #555; margin-bottom: 2rem; }
+.about-kitchen p { line-height: 1.8; color: #666; }
+
+/* Reviews Section */
+.reviews-section h2 { margin-bottom: 3rem; font-size: 2rem; color: #1a1a1a; }
+
+.review-form-container {
+    background: #fff;
+    max-width: 50rem;
+    margin: 0 auto 3rem;
+    padding: 3rem;
+    text-align: left;
+    border-radius: 1rem;
 }
 
-.menu-info p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
+.review-form-container h3 { margin-bottom: 2rem; font-size: 1.4rem; }
+
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+    font-family: inherit;
+}
+.form-group textarea { height: 8rem; resize: none; }
+
+.star-rating { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+.star { color: #ddd; font-size: 1.5rem; }
+.star.active { color: #f1c40f; }
+.rating-text { color: #888; font-size: 0.85rem; margin-left: 0.5rem; }
+
+.submit-review-btn {
+    width: 100%;
+    padding: 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1rem;
 }
 
-.price {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin-top: auto;
+.no-reviews {
+    background: #fff;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: #666;
 }
 
 /* Mobile Adjustments */
@@ -152,4 +181,5 @@ body {
     .restaurant-hero h1 { font-size: 2.2rem; }
     .menu-filters { justify-content: center; }
     .menu-grid { grid-template-columns: 1fr; }
+    .review-form-container { padding: 1.5rem; }
 }
