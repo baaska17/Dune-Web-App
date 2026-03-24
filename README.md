@@ -1,2 +1,0 @@
-# Web
-Web page horse ride page
