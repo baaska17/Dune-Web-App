@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 :root {
-    /* Colors */
     --primary: #C5A059;
     --primary-h: #a8874a;
     --bg-dark: #1a1a1a;
@@ -10,19 +9,13 @@
     --muted: #666666;
     --glass: rgba(229, 224, 216, 0.9);
     --nav-active: #E5E0D8;
-    
-    /* Radii */
-    --r-sm: 0.25rem;    /* 4px */
-    --r-md: 0.75rem;    /* 12px */
-    --r-lg: 1.5625rem;  /* 25px */
-    --r-pill: 3.125rem; /* 50px */
-    
-    /* Layout */
+    --r-sm: 0.25rem;   
+    --r-md: 0.75rem;    
+    --r-lg: 1.5625rem;  
+    --r-pill: 3.125rem; 
     --max-w: 75rem;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
     background-color: var(--bg-dark);
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/home_back.jpg');
@@ -35,11 +28,8 @@ body {
     min-height: 100vh;
     font-size: 1rem;
 }
-
-/* Utilities */
 .container { max-width: var(--max-w); margin: 0 auto; }
 .section-padding { padding: 5rem 1.25rem; text-align: center; }
-
 .btn-gold {
     background-color: var(--primary);
     color: var(--white);
@@ -55,7 +45,6 @@ body {
     gap: 0.625rem;
 }
 .btn-gold:hover { background-color: var(--primary-h); }
-
 .btn-white {
     background-color: var(--white);
     color: var(--dark);
@@ -65,8 +54,6 @@ body {
     font-weight: 600;
     box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.1);
 }
-
-/* Header */
 .header {
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.25rem 3.125rem; background: rgba(255, 255, 255, 0.95);
