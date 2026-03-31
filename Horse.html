@@ -9,10 +9,10 @@
   </head>
   <body>
     <header class="header">
-      <div class="logo" onclick="location.href='Home.html'">
+      <a href="Home.html" class="logo" style="text-decoration: none;">
         <img src="img/logo.jpg" alt="Dune Logo" class="logo-img" />
         <span>Dune Tourist Camp</span>
-      </div>
+      </a>
 
       <nav class="main-nav">
         <ul>
@@ -27,10 +27,10 @@
           <span class="active">EN</span>
           <span>MN</span>
         </div>
-        <div class="cart-icon" onclick="location.href='cart.html'">
+        <a href="cart.html" class="cart-icon" style="text-decoration: none;">
           🛒 <span class="cart-badge">1</span>
-        </div>
-        <a href="booking.html" class="book-now-btn btn-gold">Book Now</a>
+        </a>
+        <a href="room.html" class="book-now-btn btn-gold">Book Now</a>
       </div>
     </header>
 
@@ -39,7 +39,6 @@
         <div class="container hero-content-left">
           <nav class="breadcrumbs">
             <a href="Home.html">Home</a> <span>&gt;</span> 
-            <a href="#">Experiences</a> <span>&gt;</span> 
             <span class="current">Horse Riding</span>
           </nav>
           <h1>Horse Riding Adventures</h1>
@@ -80,15 +79,15 @@
             </div>
 
             <div class="experience-list">
-              <div class="exp-card active">
+              <div class="exp-card">
                 <div class="exp-header">
                   <h3>Sunset Ride - 1 Hour</h3>
                   <span class="exp-price">$35</span>
                 </div>
                 <p class="exp-desc">Experience the magical Mongolian sunset on horseback. Perfect for beginners.</p>
                 <div class="exp-meta">
-                  <span>🕒 1 hour</span>
-                  <span>👥 Max 8 people</span>
+                  <span> 1 hour</span>
+                  <span> Max 8 people</span>
                   <span class="per-person">per person</span>
                 </div>
               </div>
@@ -100,8 +99,8 @@
                 </div>
                 <p class="exp-desc">Explore the vast steppe and visit a nearby nomadic family. Includes tea ceremony.</p>
                 <div class="exp-meta">
-                  <span>🕒 2 hours</span>
-                  <span>👥 Max 6 people</span>
+                  <span> 2 hours</span>
+                  <span> Max 6 people</span>
                   <span class="per-person">per person</span>
                 </div>
               </div>
@@ -113,27 +112,15 @@
                 </div>
                 <p class="exp-desc">Full steppe experience with lunch at a traditional nomadic camp. For experienced riders.</p>
                 <div class="exp-meta">
-                  <span>🕒 4 hours</span>
-                  <span>👥 Max 4 people</span>
+                  <span> 4 hours</span>
+                  <span> Max 4 people</span>
                   <span class="per-person">per person</span>
                 </div>
               </div>
             </div>
 
-            <div class="content-section card-box">
-              <h3>What to Expect</h3>
-              <p>Embark on an unforgettable journey across the Mongolian steppe on horseback. Our experienced guides will lead you through stunning landscapes, sharing insights about nomadic culture and the natural environment.</p>
-              <p>All rides include:</p>
-              <ul class="check-list">
-                <li>Well-trained, gentle horses suitable for all experience levels</li>
-                <li>Professional guide and safety equipment</li>
-                <li>Brief riding instruction for beginners</li>
-                <li>Bottled water and refreshments</li>
-              </ul>
-            </div>
-
             <div class="content-section card-box safety-section">
-              <h3><span class="info-icon-small">ⓘ</span> Safety Information</h3>
+              <h3><span class="info-icon-small"></span> Safety Information</h3>
               <ul class="dot-list">
                 <li>Weight limit: 220 lbs (100 kg)</li>
                 <li>Minimum age: 8 years old (children must be accompanied by adults)</li>
@@ -149,11 +136,11 @@
               <h3>Book Your Ride</h3>
               <div class="booking-form">
                 <div class="form-group">
-                  <label>📅 Select Date</label>
+                  <label> Select Date</label>
                   <input type="date" value="2026-07-15" />
                 </div>
                 <div class="form-group">
-                  <label>🕒 Select Time</label>
+                  <label> Select Time</label>
                   <select>
                     <option>Choose time slot</option>
                     <option selected>10:00 AM</option>
@@ -162,7 +149,7 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label>👥 Number of People</label>
+                  <label> Number of People</label>
                   <input type="number" value="2" min="1" />
                   <span class="input-hint">Maximum 8 people</span>
                 </div>
@@ -178,7 +165,7 @@
                   </div>
                 </div>
 
-                <button class="btn-book-full">Book This Experience</button>
+                <a href="cart.html" class="btn-book-full btn-gold" style="text-decoration: none;">Book This Experience</a>
                 <p class="cancellation-policy">Free cancellation up to 24 hours before the ride</p>
               </div>
             </div>

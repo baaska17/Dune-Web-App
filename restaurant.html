@@ -8,11 +8,18 @@
     <link rel="stylesheet" href="res.css" />
   </head>
   <body>
+    <!-- Hidden Radio Inputs for CSS Filtering (Requirement: No Script) -->
+    <input type="radio" name="menu-filter" id="all" checked style="display:none;">
+    <input type="radio" name="menu-filter" id="main-dishes" style="display:none;">
+    <input type="radio" name="menu-filter" id="drinks" style="display:none;">
+    <input type="radio" name="menu-filter" id="desserts" style="display:none;">
+    <input type="radio" name="menu-filter" id="white-foods" style="display:none;">
+
     <header class="header">
-      <div class="logo" onclick="location.href='Home.html'">
+      <a href="Home.html" class="logo" style="text-decoration: none;">
         <img src="img/logo.jpg" alt="Dune Logo" class="logo-img" />
         <span>Dune Tourist Camp</span>
-      </div>
+      </a>
 
       <nav class="main-nav">
         <ul>
@@ -27,10 +34,10 @@
           <span class="active">EN</span>
           <span>MN</span>
         </div>
-        <div class="cart-icon" onclick="location.href='cart.html'">
+        <a href="cart.html" class="cart-icon" style="text-decoration: none;">
           🛒 <span class="cart-badge">1</span>
-        </div>
-        <a href="booking.html" class="book-now-btn btn-gold">Book Now</a>
+        </a>
+        <a href="room.html" class="book-now-btn btn-gold">Book Now</a>
       </div>
     </header>
 
@@ -38,12 +45,14 @@
       <section class="restaurant-hero">
         <div class="container hero-content-left">
           <nav class="breadcrumbs">
-            <a href="Home.html">Home</a> <span>&gt;</span> 
-            <a href="#">Dining</a> <span>&gt;</span> 
+            <a href="Home.html">Home</a> <span>&gt;</span>
             <span class="current">Restaurant</span>
           </nav>
           <h1>Traditional Restaurant</h1>
-          <p class="tagline">Savor authentic Mongolian cuisine prepared with locally sourced ingredients</p>
+          <p class="tagline">
+            Savor authentic Mongolian cuisine prepared with locally sourced
+            ingredients
+          </p>
         </div>
       </section>
 
@@ -54,19 +63,23 @@
             <p class="subtitle">Order for room delivery or camp pickup</p>
           </div>
 
+          <!-- Labels act as filter buttons linked to Radio inputs -->
           <div class="menu-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="main-dishes">Main Dishes</button>
-            <button class="filter-btn" data-filter="drinks">Drinks</button>
-            <button class="filter-btn" data-filter="desserts">Desserts</button>
-            <button class="filter-btn" data-filter="white-foods">White Foods</button>
+            <label for="all" class="filter-btn all-label">All</label>
+            <label for="main-dishes" class="filter-btn main-dishes-label">Main Dishes</label>
+            <label for="drinks" class="filter-btn drinks-label">Drinks</label>
+            <label for="desserts" class="filter-btn desserts-label">Desserts</label>
+            <label for="white-foods" class="filter-btn white-foods-label">White Foods</label>
           </div>
 
           <div class="menu-grid" id="menu-grid">
             <!-- Khorkhog -->
-            <div class="menu-card" data-category="main-dishes">
+            <div class="menu-card main-dishes">
               <div class="img-container">
                 <img src="img/Khorkhog.jpg" alt="Khorkhog" class="menu-img" />
+                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <span class="plus">+</span> Add to Cart
+                </a>
               </div>
               <div class="menu-info">
                 <h3>Khorkhog</h3>
@@ -76,9 +89,12 @@
             </div>
 
             <!-- Buuz -->
-            <div class="menu-card" data-category="main-dishes">
+            <div class="menu-card main-dishes">
               <div class="img-container">
                 <img src="img/Buuz.jpg" alt="Buuz" class="menu-img" />
+                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <span class="plus">+</span> Add to Cart
+                </a>
               </div>
               <div class="menu-info">
                 <h3>Buuz</h3>
@@ -88,9 +104,12 @@
             </div>
 
             <!-- Tsuivan -->
-            <div class="menu-card" data-category="main-dishes">
+            <div class="menu-card main-dishes">
               <div class="img-container">
                 <img src="img/Tsuivan.jpg" alt="Tsuivan" class="menu-img" />
+                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <span class="plus">+</span> Add to Cart
+                </a>
               </div>
               <div class="menu-info">
                 <h3>Tsuivan</h3>
@@ -100,10 +119,13 @@
             </div>
 
             <!-- Vegetarian Stir-fry -->
-            <div class="menu-card" data-category="main-dishes">
+            <div class="menu-card main-dishes">
               <div class="img-container">
                 <span class="badge veg">Vegetarian</span>
                 <img src="img/VegetarianStirfry.jpg" alt="Vegetarian Stir-fry" class="menu-img" />
+                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <span class="plus">+</span> Add to Cart
+                </a>
               </div>
               <div class="menu-info">
                 <h3>Vegetarian Stir-fry</h3>
@@ -113,9 +135,12 @@
             </div>
 
             <!-- Suutei Tsai -->
-            <div class="menu-card" data-category="drinks">
+            <div class="menu-card drinks">
               <div class="img-container">
                 <img src="img/SuuteiTsai.jpg" alt="Suutei Tsai" class="menu-img" />
+                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <span class="plus">+</span> Add to Cart
+                </a>
               </div>
               <div class="menu-info">
                 <h3>Suutei Tsai</h3>
@@ -125,9 +150,12 @@
             </div>
 
             <!-- Airag -->
-            <div class="menu-card" data-category="drinks">
+            <div class="menu-card white-foods">
               <div class="img-container">
                 <img src="img/Airag.jpg" alt="Airag" class="menu-img" />
+                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <span class="plus">+</span> Add to Cart
+                </a>
               </div>
               <div class="menu-info">
                 <h3>Airag</h3>
@@ -137,9 +165,12 @@
             </div>
 
             <!-- Boortsog -->
-            <div class="menu-card" data-category="desserts">
+            <div class="menu-card desserts">
               <div class="img-container">
                 <img src="img/Boortsog.jpg" alt="Boortsog" class="menu-img" />
+                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <span class="plus">+</span> Add to Cart
+                </a>
               </div>
               <div class="menu-info">
                 <h3>Boortsog</h3>
@@ -155,45 +186,7 @@
         <div class="container small-container">
           <h2>About Our Restaurant</h2>
           <p class="intro">Celebrating the rich culinary heritage of Mongolia with traditional methods and authentic recipes</p>
-          <p>We source our ingredients locally, supporting nomadic families and ensuring the freshest, highest quality produce. From hearty meat dishes to delicate dairy products, experience the true taste of the Mongolian steppe.</p>
-        </div>
-      </section>
-
-      <section class="reviews-section section-padding">
-        <div class="container">
-          <h2>Customer Reviews</h2>
-          
-          <div class="review-form-container glass-panel">
-            <h3>Leave a Review</h3>
-            <form class="review-form">
-              <div class="form-group">
-                <label>Your Name</label>
-                <input type="text" placeholder="Enter your name" />
-              </div>
-              <div class="form-group">
-                <label>Rating</label>
-                <div class="star-rating">
-                  <span class="star active">★</span>
-                  <span class="star active">★</span>
-                  <span class="star active">★</span>
-                  <span class="star active">★</span>
-                  <span class="star active">★</span>
-                  <span class="rating-text">5 stars</span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Your Review</label>
-                <textarea placeholder="Share your experience with us..."></textarea>
-              </div>
-              <button type="submit" class="submit-review-btn btn-gold">
-                <span>✈️</span> Submit Review
-              </button>
-            </form>
-          </div>
-
-          <div class="no-reviews glass-panel">
-            <p>No reviews yet. Be the first to share your experience!</p>
-          </div>
+          <p>We source our ingredients locally, supporting nomadic families and ensuring the freshest, highest quality produce.</p>
         </div>
       </section>
     </main>
@@ -217,22 +210,5 @@
         <p>&copy; 2026 Dune Tourist Camp. All rights reserved.</p>
       </div>
     </footer>
-
-    <script>
-      document.querySelectorAll('.filter-btn').forEach(button => {
-        button.addEventListener('click', () => {
-          const filter = button.getAttribute('data-filter');
-          document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          document.querySelectorAll('.menu-card').forEach(card => {
-            if (filter === 'all' || card.getAttribute('data-category') === filter) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-    </script>
   </body>
 </html>

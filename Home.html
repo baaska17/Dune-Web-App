@@ -8,10 +8,10 @@
   </head>
   <body>
     <header class="header">
-      <div class="logo" onclick="location.href='Home.html'">
+      <a href="Home.html" class="logo" style="text-decoration: none;">
         <img src="img/logo.jpg" alt="Dune Logo" class="logo-img" />
         <span>Dune Tourist Camp</span>
-      </div>
+      </a>
 
       <nav class="main-nav">
         <ul>
@@ -26,10 +26,10 @@
           <span class="active">EN</span>
           <span>MN</span>
         </div>
-        <div class="cart-icon" onclick="location.href='cart.html'">
+        <a href="cart.html" class="cart-icon" style="text-decoration: none;">
           🛒 <span class="cart-badge">1</span>
-        </div>
-        <a href="booking.html" class="book-now-btn btn-gold">Book Now</a>
+        </a>
+        <a href="room.html" class="book-now-btn btn-gold">Book Now</a>
       </div>
     </header>
 
@@ -74,13 +74,13 @@
           <h3>Book Your Stay</h3>
           <div class="input-group">
             <label>Check-in</label>
-            <input type="date" placeholder="mm/dd/yyyy" />
+            <input type="date" id="check-in-date" />
           </div>
           <div class="input-group">
             <label>Check-out</label>
-            <input type="date" placeholder="mm/dd/yyyy" />
+            <input type="date" id="check-out-date" />
           </div>
-          <button class="search-btn btn-gold"><span>🔍</span> Search</button>
+          <a href="room.html" class="search-btn btn-gold" style="text-decoration: none;"><span>🔍</span> Search</a>
         </div>
       </div>
 
@@ -119,7 +119,7 @@
           <span>✓ Best price guarantee</span>
         </div>
 
-        <a href="booking.html" class="check-availability-btn btn-gold">
+        <a href="room.html" class="check-availability-btn btn-gold">
           Check Availability <span>→</span>
         </a>
       </section>
@@ -151,14 +151,12 @@
           <h4>EMAIL</h4>
           <p>
             <a href="mailto:info@dunetouristcamp.com">info@dunetouristcamp.com</a><br />
-            <a href="mailto:bookings@dunetouristcamp.com">bookings@dunetouristcamp.com</a>
           </p>
         </div>
         <div class="footer-section">
           <h4>PHONE</h4>
           <p>
             <a href="tel:+97612345678">+976 1234 5678</a><br />
-            <a href="tel:+97698765432">+976 9876 5432</a>
           </p>
         </div>
       </div>
