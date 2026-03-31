@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="res.css" />
   </head>
   <body>
-    <!-- Hidden Radio Inputs for CSS Filtering (Requirement: No Script) -->
     <input type="radio" name="menu-filter" id="all" checked style="display:none;">
     <input type="radio" name="menu-filter" id="main-dishes" style="display:none;">
     <input type="radio" name="menu-filter" id="drinks" style="display:none;">
@@ -43,7 +42,7 @@
 
     <main>
       <section class="restaurant-hero">
-        <div class="container hero-content-left">
+        <header class="container hero-content-left">
           <nav class="breadcrumbs">
             <a href="Home.html">Home</a> <span>&gt;</span>
             <span class="current">Restaurant</span>
@@ -53,7 +52,7 @@
             Savor authentic Mongolian cuisine prepared with locally sourced
             ingredients
           </p>
-        </div>
+        </header>
       </section>
 
       <div class="container">
@@ -62,8 +61,6 @@
             <h2>Our Menu</h2>
             <p class="subtitle">Order for room delivery or camp pickup</p>
           </div>
-
-          <!-- Labels act as filter buttons linked to Radio inputs -->
           <div class="menu-filters">
             <label for="all" class="filter-btn all-label">All</label>
             <label for="main-dishes" class="filter-btn main-dishes-label">Main Dishes</label>
@@ -72,113 +69,120 @@
             <label for="white-foods" class="filter-btn white-foods-label">White Foods</label>
           </div>
 
-          <div class="menu-grid" id="menu-grid">
-            <!-- Khorkhog -->
-            <div class="menu-card main-dishes">
-              <div class="img-container">
-                <img src="img/Khorkhog.jpg" alt="Khorkhog" class="menu-img" />
-                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
-                  <span class="plus">+</span> Add to Cart
-                </a>
-              </div>
-              <div class="menu-info">
-                <h3>Khorkhog</h3>
-                <p>Traditional Mongolian barbecue with mutton, vegetables, and hot stones</p>
-                <span class="price">$18</span>
-              </div>
-            </div>
+          <ul class="menu-grid" id="menu-grid">
+            <li class="menu-card main-dishes">
+              <article>
+                <figure class="img-container">
+                  <img src="img/Khorkhog.jpg" alt="Khorkhog" class="menu-img" />
+                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                    <span class="plus">+</span> Add to Cart
+                  </a>
+                </figure>
+                <figcaption class="menu-info">
+                  <h3>Khorkhog</h3>
+                  <p>Traditional Mongolian barbecue with mutton, vegetables, and hot stones</p>
+                  <span class="price">$18</span>
+                </figcaption>
+              </article>
+            </li>
 
-            <!-- Buuz -->
-            <div class="menu-card main-dishes">
-              <div class="img-container">
-                <img src="img/Buuz.jpg" alt="Buuz" class="menu-img" />
-                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
-                  <span class="plus">+</span> Add to Cart
-                </a>
-              </div>
-              <div class="menu-info">
-                <h3>Buuz</h3>
-                <p>Steamed dumplings filled with minced meat and onions</p>
-                <span class="price">$12</span>
-              </div>
-            </div>
+            <li class="menu-card main-dishes">
+              <article>
+                <figure class="img-container">
+                  <img src="img/Buuz.jpg" alt="Buuz" class="menu-img" />
+                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                    <span class="plus">+</span> Add to Cart
+                  </a>
+                </figure>
+                <figcaption class="menu-info">
+                  <h3>Buuz</h3>
+                  <p>Steamed dumplings filled with minced meat and onions</p>
+                  <span class="price">$12</span>
+                </figcaption>
+              </article>
+            </li>
 
-            <!-- Tsuivan -->
-            <div class="menu-card main-dishes">
-              <div class="img-container">
-                <img src="img/Tsuivan.jpg" alt="Tsuivan" class="menu-img" />
-                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
-                  <span class="plus">+</span> Add to Cart
-                </a>
-              </div>
-              <div class="menu-info">
-                <h3>Tsuivan</h3>
-                <p>Hand-pulled noodles stir-fried with vegetables and meat</p>
-                <span class="price">$14</span>
-              </div>
-            </div>
+            <li class="menu-card main-dishes">
+              <article>
+                <figure class="img-container">
+                  <img src="img/Tsuivan.jpg" alt="Tsuivan" class="menu-img" />
+                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                    <span class="plus">+</span> Add to Cart
+                  </a>
+                </figure>
+                <figcaption class="menu-info">
+                  <h3>Tsuivan</h3>
+                  <p>Hand-pulled noodles stir-fried with vegetables and meat</p>
+                  <span class="price">$14</span>
+                </figcaption>
+              </article>
+            </li>
 
-            <!-- Vegetarian Stir-fry -->
-            <div class="menu-card main-dishes">
-              <div class="img-container">
-                <span class="badge veg">Vegetarian</span>
-                <img src="img/VegetarianStirfry.jpg" alt="Vegetarian Stir-fry" class="menu-img" />
-                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
-                  <span class="plus">+</span> Add to Cart
-                </a>
-              </div>
-              <div class="menu-info">
-                <h3>Vegetarian Stir-fry</h3>
-                <p>Mixed seasonal vegetables with traditional Mongolian spices</p>
-                <span class="price">$11</span>
-              </div>
-            </div>
+            <li class="menu-card main-dishes">
+              <article>
+                <figure class="img-container">
+                  <span class="badge veg">Vegetarian</span>
+                  <img src="img/VegetarianStirfry.jpg" alt="Vegetarian Stir-fry" class="menu-img" />
+                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                    <span class="plus">+</span> Add to Cart
+                  </a>
+                </figure>
+                <figcaption class="menu-info">
+                  <h3>Vegetarian Stir-fry</h3>
+                  <p>Mixed seasonal vegetables with traditional Mongolian spices</p>
+                  <span class="price">$11</span>
+                </figcaption>
+              </article>
+            </li>
 
-            <!-- Suutei Tsai -->
-            <div class="menu-card drinks">
-              <div class="img-container">
-                <img src="img/SuuteiTsai.jpg" alt="Suutei Tsai" class="menu-img" />
-                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
-                  <span class="plus">+</span> Add to Cart
-                </a>
-              </div>
-              <div class="menu-info">
-                <h3>Suutei Tsai</h3>
-                <p>Traditional Mongolian milk tea with salt</p>
-                <span class="price">$4</span>
-              </div>
-            </div>
+            <li class="menu-card drinks">
+              <article>
+                <figure class="img-container">
+                  <img src="img/SuuteiTsai.jpg" alt="Suutei Tsai" class="menu-img" />
+                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                    <span class="plus">+</span> Add to Cart
+                  </a>
+                </figure>
+                <figcaption class="menu-info">
+                  <h3>Suutei Tsai</h3>
+                  <p>Traditional Mongolian milk tea with salt</p>
+                  <span class="price">$4</span>
+                </figcaption>
+              </article>
+            </li>
 
-            <!-- Airag -->
-            <div class="menu-card white-foods">
-              <div class="img-container">
-                <img src="img/Airag.jpg" alt="Airag" class="menu-img" />
-                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
-                  <span class="plus">+</span> Add to Cart
-                </a>
-              </div>
-              <div class="menu-info">
-                <h3>Airag</h3>
-                <p>Fermented mare's milk, a traditional beverage</p>
-                <span class="price">$6</span>
-              </div>
-            </div>
+            <li class="menu-card white-foods">
+              <article>
+                <figure class="img-container">
+                  <img src="img/Airag.jpg" alt="Airag" class="menu-img" />
+                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                    <span class="plus">+</span> Add to Cart
+                  </a>
+                </figure>
+                <figcaption class="menu-info">
+                  <h3>Airag</h3>
+                  <p>Fermented mare's milk, a traditional beverage</p>
+                  <span class="price">$6</span>
+                </figcaption>
+              </article>
+            </li>
 
-            <!-- Boortsog -->
-            <div class="menu-card desserts">
-              <div class="img-container">
-                <img src="img/Boortsog.jpg" alt="Boortsog" class="menu-img" />
-                <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
-                  <span class="plus">+</span> Add to Cart
-                </a>
-              </div>
-              <div class="menu-info">
-                <h3>Boortsog</h3>
-                <p>Traditional fried dough pastries</p>
-                <span class="price">$8</span>
-              </div>
-            </div>
-          </div>
+            <li class="menu-card desserts">
+              <article>
+                <figure class="img-container">
+                  <img src="img/Boortsog.jpg" alt="Boortsog" class="menu-img" />
+                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                    <span class="plus">+</span> Add to Cart
+                  </a>
+                </figure>
+                <figcaption class="menu-info">
+                  <h3>Boortsog</h3>
+                  <p>Traditional fried dough pastries</p>
+                  <span class="price">$8</span>
+                </figcaption>
+              </article>
+            </li>
+          </ul>
         </section>
       </div>
 
@@ -186,7 +190,7 @@
         <div class="container small-container">
           <h2>About Our Restaurant</h2>
           <p class="intro">Celebrating the rich culinary heritage of Mongolia with traditional methods and authentic recipes</p>
-          <p>We source our ingredients locally, supporting nomadic families and ensuring the freshest, highest quality produce.</p>
+          <p>We source our ingredients locally, supporting nomadic families and ensuring the freshest, highest quality produce. From hearty meat dishes to delicate dairy products, experience the true taste of the Mongolian steppe.</p>
         </div>
       </section>
     </main>

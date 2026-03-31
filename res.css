@@ -1,8 +1,7 @@
-/* res.css - Full Restaurant Design from User Images */
 
 body {
     background-image: none !important;
-    background-color: #ffffff; /* Main yellowish background */
+    background-color: #ffffff; 
     color: var(--dark);
 }
 
@@ -39,11 +38,7 @@ body {
     font-weight: 800;
 }
 
-/* =========================================
-   CSS FILTER LOGIC (NO JAVASCRIPT)
-   ========================================= */
 
-/* 1. Hide all cards by default when a specific filter (not 'all') is selected */
 #main-dishes:checked ~ main .menu-card,
 #drinks:checked ~ main .menu-card,
 #desserts:checked ~ main .menu-card,
@@ -51,7 +46,6 @@ body {
     display: none;
 }
 
-/* 2. Show only the specific category cards */
 #main-dishes:checked ~ main .menu-card.main-dishes,
 #drinks:checked ~ main .menu-card.drinks,
 #desserts:checked ~ main .menu-card.desserts,
@@ -60,7 +54,6 @@ body {
     display: flex;
 }
 
-/* 3. Style the active filter label */
 #all:checked ~ main .all-label,
 #main-dishes:checked ~ main .main-dishes-label,
 #drinks:checked ~ main .drinks-label,
@@ -71,7 +64,6 @@ body {
     box-shadow: 0 6px 18px rgba(16,24,32,0.06);
 }
 
-/* Filters */
 .menu-filters {
     display: flex;
     gap: 1rem;
@@ -96,7 +88,6 @@ body {
     transition: 0.3s;
 }
 
-/* Menu Grid */
 .menu-grid {
     display: flex;
     flex-wrap: wrap;
@@ -215,6 +206,8 @@ body {
 .about-kitchen .intro { font-weight: 600; color: #555; margin-bottom: 2rem; }
 .about-kitchen p { line-height: 1.8; color: #666; }
 
+
+
 .footer { background: #111; color: var(--white); padding: 3.75rem 1.25rem 1.25rem; }
 .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); gap: 2.5rem; }
 
@@ -224,3 +217,4 @@ body {
     .menu-grid { justify-content: center; }
     .menu-card { width: 100%; }
 }
+
