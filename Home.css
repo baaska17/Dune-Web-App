@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
+/* 
+   1. CSS CUSTOM PROPERTIES
+   Бүх тогтмол утгуудыг хувьсагчид оноов
+*/
 :root {
     --primary: #C5A059;
     --primary-h: #a8874a;
@@ -15,7 +19,12 @@
     --r-pill: 3.125rem; 
     --max-w: 75rem;
 }
+
+/* 
+   2. GLOBAL STYLES
+*/
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
     background-color: var(--bg-dark);
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/home_back.jpg');
@@ -28,8 +37,13 @@ body {
     min-height: 100vh;
     font-size: 1rem;
 }
+
 .container { max-width: var(--max-w); margin: 0 auto; }
 .section-padding { padding: 5rem 1.25rem; text-align: center; }
+
+/* 
+   3. COMPONENTS 
+*/
 .btn-gold {
     background-color: var(--primary);
     color: var(--white);
@@ -37,14 +51,15 @@ body {
     border-radius: var(--r-pill);
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    transition: 0.3s; /* Transition ашиглав */
     border: none;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
+    &:hover { background-color: var(--primary-h); } 
 }
-.btn-gold:hover { background-color: var(--primary-h); }
+
 .btn-white {
     background-color: var(--white);
     color: var(--dark);
@@ -54,146 +69,203 @@ body {
     font-weight: 600;
     box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.1);
 }
+
+/* 
+   4. HEADER SECTION 
+*/
 .header {
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.25rem 3.125rem; background: rgba(255, 255, 255, 0.95);
     color: var(--dark); position: sticky; top: 0; z-index: 1000;
-}
-.logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.2rem; cursor: pointer; color: var(--dark); }
-.logo-img { width: 2.5rem; height: 2.5rem; object-fit: contain; border-radius: var(--r-sm); }
 
-nav.main-nav ul { display: flex; list-style: none; gap: 0.625rem; }
-nav.main-nav a {
-    text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.85rem;
-    padding: 0.625rem 1.25rem; border-radius: var(--r-pill); transition: all 0.3s ease;
-}
-nav.main-nav a.active { background: var(--nav-active); }
-nav.main-nav a:hover { background: #f0f0f0; }
+    .logo { 
+        display: flex; align-items: center; gap: 0.75rem; font-weight: 700; 
+        font-size: 1.2rem; cursor: pointer; color: var(--dark); 
+        
+        .logo-img { width: 2.5rem; height: 2.5rem; object-fit: contain; border-radius: var(--r-sm); }
+    }
+    nav.main-nav {
+        ul { 
+            display: flex; list-style: none; gap: 0.625rem; 
+            
+            a {
+                text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.85rem;
+                padding: 0.625rem 1.25rem; border-radius: var(--r-pill); transition: all 0.3s ease;
 
-.header-right { display: flex; align-items: center; gap: 1.25rem; }
-.lang-switch {
-    background: #f0f0f0; padding: 0.3125rem 0.625rem; border-radius: var(--r-pill);
-    font-size: 0.8rem; display: flex; gap: 0.625rem;
-}
-.lang-switch span { cursor: pointer; color: #888; }
-.lang-switch span.active { color: #000; font-weight: bold; }
-
-.cart-icon {
-    position: relative; cursor: pointer; background: #f0f0f0;
-    padding: 0.5rem; border-radius: 50%; color: var(--dark);
-}
-.cart-badge {
-    position: absolute; top: -0.3125rem; right: -0.3125rem; background: #ff4d4d; color: white;
-    font-size: 0.7rem; width: 1.125rem; height: 1.125rem; border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-}
-
-/* Hero Section */
-.hero { text-align: center; padding: 6.25rem 1.25rem 3.75rem; }
-.hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 0.9375rem; }
-.hero .subtitle { text-transform: uppercase; letter-spacing: 0.25rem; font-size: 0.8rem; color: #ccc; margin-bottom: 0.625rem; }
-
-/* Grid Content */
-.main-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.875rem; padding-bottom: 6.25rem; }
-.glass-panel { background: var(--glass); border-radius: var(--r-lg); padding: 1.875rem; color: var(--dark); box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1); }
-
-.activity-card {
-    background: #fff; border-radius: 0.9375rem; padding: 0.9375rem;
-    display: flex; gap: 1.25rem; margin-bottom: 1.25rem; align-items: center; transition: transform 0.3s;
-}
-.activity-card:hover { transform: translateY(-0.3125rem); }
-.activity-card img { width: 6.25rem; height: 6.25rem; object-fit: cover; border-radius: var(--r-md); }
-
-.activity-info h4 { font-size: 1.1rem; margin-bottom: 0.3125rem; color: #000; }
-.activity-info p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.625rem; }
-
-/* Booking Section Refined */
-.booking-panel h3 { font-size: 1.5rem; margin-bottom: 1.875rem; font-weight: 700; color: #000; }
-.input-group { margin-bottom: 1.25rem; }
-.input-group label {
-    display: block; text-transform: uppercase; font-size: 0.75rem;
-    font-weight: 700; color: #888; margin-bottom: 0.5rem;
-}
-.input-group input {
-    width: 100%; padding: 0.9375rem; border: 0.0625rem solid transparent;
-    border-radius: var(--r-md); font-size: 1rem; color: var(--dark);
-    transition: all 0.3s;
-}
-.input-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0.3125rem rgba(197, 160, 89, 0.3); }
-
-.search-btn {
-    width: 100%; padding: 0.9375rem; margin-top: 1.25rem;
-    justify-content: center; font-size: 1rem; font-weight: 700;
+                &.active { background: var(--nav-active); }
+                &:hover { background: #f0f0f0; }
+            }
+        }
+    }
+    .header-right { 
+        display: flex; align-items: center; gap: 1.25rem; 
+        
+        .lang-switch {
+            background: #f0f0f0; padding: 0.3125rem 0.625rem; border-radius: var(--r-pill);
+            font-size: 0.8rem; display: flex; gap: 0.625rem;
+            
+            span { cursor: pointer; color: #888; &.active { color: #000; font-weight: bold; } }
+        }
+        .cart-icon {
+            position: relative; cursor: pointer; background: #f0f0f0;
+            padding: 0.5rem; border-radius: 50%; color: var(--dark);
+            
+            .cart-badge {
+                position: absolute; top: -0.3125rem; right: -0.3125rem; background: #ff4d4d; color: white;
+                font-size: 0.7rem; width: 1.125rem; height: 1.125rem; border-radius: 50%;
+                display: flex; justify-content: center; align-items: center;
+            }
+        }
+    }
 }
 
-/* Why Choose Section */
-.why-choose { background: var(--nav-active); color: var(--bg-dark); }
-.why-choose .subtitle { font-size: 1.1rem; color: var(--muted); margin-bottom: 3.125rem; }
-.why-choose .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); gap: 1.5625rem; margin: 0 auto 2.5rem; }
+/* 
+   5. HERO & MAIN CONTENT (GRID & NESTED)
+*/
+.hero { 
+    text-align: center; padding: 6.25rem 1.25rem 3.75rem; 
+    animation: fadeInUp 1s ease-out; /* Animation ашиглав */
 
-.feature-box {
-    background: white; padding: 2.5rem 1.5625rem; border-radius: 1.25rem;
-    box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.05); transition: transform 0.3s ease;
+    h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 0.9375rem; }
+    .subtitle { text-transform: uppercase; letter-spacing: 0.25rem; font-size: 0.8rem; color: #ccc; margin-bottom: 0.625rem; }
+    .tagline { font-size: 1.1rem; }
 }
-.feature-box:hover { transform: translateY(-0.625rem); }
-.feature-box .icon-circle {
-    width: 3.75rem; height: 3.75rem; background: var(--bg-dark); color: white;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.25rem; font-size: 1.5rem;
+
+.main-container { 
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.875rem; padding-bottom: 6.25rem; 
+    
+    .glass-panel { 
+        background: var(--glass); border-radius: var(--r-lg); padding: 1.875rem; 
+        color: var(--dark); box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1); 
+
+        .activity-card {
+            background: #fff; border-radius: 0.9375rem; padding: 0.9375rem;
+            display: flex; gap: 1.25rem; margin-bottom: 1.25rem; align-items: center; 
+            transition: transform 0.3s;
+
+            &:hover { transform: translateY(-0.3125rem); } 
+            img { width: 6.25rem; height: 6.25rem; object-fit: cover; border-radius: var(--r-md); }
+            
+            .activity-info {
+                h4 { font-size: 1.1rem; margin-bottom: 0.3125rem; color: #000; }
+                p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.625rem; }
+            }
+        }
+    }
 }
-.feature-box h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.9375rem; }
 
-.trust-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.25rem; color: #888; margin-bottom: 2.5rem; }
-.trust-badges .dot { color: var(--primary); font-size: 0.5rem; }
+/* Захиалгын хэсэг */
+.booking-panel {
+    h3 { font-size: 1.5rem; margin-bottom: 1.875rem; font-weight: 700; color: #000; }
+    .input-group { 
+        margin-bottom: 1.25rem; 
+        label { display: block; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; color: #888; margin-bottom: 0.5rem; }
+        input { 
+            width: 100%; padding: 0.9375rem; border: 0.0625rem solid transparent;
+            border-radius: var(--r-md); font-size: 1rem; color: var(--dark); transition: all 0.3s;
+            &:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0.3125rem rgba(197, 160, 89, 0.3); }
+        }
+    }
+    .search-btn { width: 100%; padding: 0.9375rem; margin-top: 1.25rem; justify-content: center; font-size: 1rem; font-weight: 700; }
+}
 
-/* Map Section */
-.find-us { background: #fff; color: var(--dark); }
-.map-container { width: 100%; height: 31.25rem; background: #f0ebe4; border-radius: 1.25rem; overflow: hidden; position: relative; }
-.map-container iframe { width: 100%; height: 100%; }
-.open-maps { position: absolute; top: 1.25rem; left: 1.25rem; }
+/* 
+   6. WHY CHOOSE SECTION
+*/
+.why-choose { 
+    background: var(--nav-active); color: var(--bg-dark); 
+    .subtitle { font-size: 1.1rem; color: var(--muted); margin-bottom: 3.125rem; }
+    
+    .features { 
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); gap: 1.5625rem; margin: 0 auto 2.5rem; 
+        
+        .feature-box {
+            background: white; padding: 2.5rem 1.5625rem; border-radius: 1.25rem;
+            box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.05); transition: transform 0.3s ease;
+            &:hover { transform: translateY(-0.625rem); }
+            
+            .icon-circle {
+                width: 3.75rem; height: 3.75rem; background: var(--bg-dark); color: white;
+                border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                margin: 0 auto 1.25rem; font-size: 1.5rem;
+            }
+            h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.9375rem; }
+        }
+    }
 
-/* Footer */
-.footer { background: #111; color: var(--white); padding: 3.75rem 1.25rem 1.25rem; }
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); gap: 2.5rem; margin-bottom: 2.5rem; justify-content: center; }
-.footer-section { text-align: center; }
-.footer-section h4 { color: var(--primary); font-size: 0.8rem; letter-spacing: 0.125rem; margin-bottom: 1.25rem; }
-.footer-section a { color: white; text-decoration: none; transition: color 0.3s; }
-.footer-section a:hover { color: var(--primary); }
-.footer-bottom { border-top: 0.0625rem solid #333; padding-top: 1.25rem; color: #666; text-align: center; font-size: 0.85rem; }
+    .trust-badges { 
+        display: flex; justify-content: center; flex-wrap: wrap; gap: 1.25rem; color: #888; margin-bottom: 2.5rem; 
+        .dot { color: var(--primary); font-size: 0.5rem; }
+    }
+}
 
-/* Mobile Responsive */
+/* 
+   7. FOOTER & MAP
+*/
+.find-us { 
+    background: #fff; color: var(--dark); 
+    .map-container { 
+        width: 100%; height: 31.25rem; background: #f0ebe4; border-radius: 1.25rem; overflow: hidden; position: relative; 
+        iframe { width: 100%; height: 100%; }
+        .open-maps { position: absolute; top: 1.25rem; left: 1.25rem; }
+    }
+}
+
+.footer { 
+    background: #111; color: var(--white); padding: 3.75rem 1.25rem 1.25rem; 
+    .footer-content { 
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); gap: 2.5rem; margin-bottom: 2.5rem; justify-content: center; 
+        .footer-section { 
+            text-align: center; font-style: normal;
+            h4 { color: var(--primary); font-size: 0.8rem; letter-spacing: 0.125rem; margin-bottom: 1.25rem; }
+            a { color: white; text-decoration: none; transition: color 0.3s; &:hover { color: var(--primary); } }
+        }
+    }
+    .footer-bottom { border-top: 0.0625rem solid #333; padding-top: 1.25rem; color: #666; text-align: center; font-size: 0.85rem; }
+}
+
+/* 
+   8. ANIMATION KEYFRAMES
+*/
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 
+   9. MOBILE 
+*/
 @media (max-width: 48rem) {
     body { padding-top: 5rem; padding-bottom: 6rem; }
 
     .header {
-        position: fixed; top: 0; left: 0; right: 0;
-        padding: 0.75rem 1rem; height: 4.5rem;
-        background: rgba(255, 255, 255, 0.98); z-index: 1002;
-        box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.1);
+        position: fixed; top: 0; left: 0; right: 0; padding: 0.75rem 1rem; height: 4.5rem;
+        background: rgba(255, 255, 255, 0.98); z-index: 1002; box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.1);
+        
+        nav.main-nav, .header-right .lang-switch, .header-right .cart-icon { display: none; }
+        .book-now-btn { width: auto; padding: 0.5rem 1rem; font-size: 0.8rem; }
+        .logo { font-size: 0.9rem; .logo-img { width: 1.8rem; height: 1.8rem; } }
     }
-    .header nav.main-nav, .header-right .lang-switch, .header-right .cart-icon { display: none; }
 
-    .book-now-btn { width: auto; padding: 0.5rem 1rem; font-size: 0.8rem; }
-    .logo { font-size: 0.9rem; }
-    .logo-img { width: 1.8rem; height: 1.8rem; }
+    /* Original Bottom Menu UX */
+    nav.main-nav { 
+        display: block !important; position: fixed; bottom: 2.5rem; left: 0; right: 0; z-index: 1003; 
+        ul { justify-content: center; gap: 0.2rem; a { padding: 0.4rem 0.5rem; font-size: 0.65rem; background: transparent; color: var(--dark); } }
+    }
 
-    nav.main-nav { display: block; position: fixed; bottom: 2.5rem; left: 0; right: 0; z-index: 1003; }
-    nav.main-nav ul { justify-content: center; gap: 0.2rem; }
-    nav.main-nav a { padding: 0.4rem 0.5rem; font-size: 0.65rem; background: transparent; color: var(--dark); }
+    .header-right { 
+        position: fixed; bottom: 0.5rem; left: 0; right: 0; display: flex !important; justify-content: center; gap: 2rem; z-index: 1003; 
+        .lang-switch, .cart-icon { display: flex; }
+    }
 
-    .header-right { position: fixed; bottom: 0.5rem; left: 0; right: 0; display: flex; justify-content: center; gap: 2rem; z-index: 1003; }
-    .header-right .lang-switch, .header-right .cart-icon { display: flex; }
-
+    /* Original Bottom White Panel */
     body::after {
-        content: ""; position: fixed; bottom: 0; left: 0; right: 0;
-        height: 5.5rem; background: #fff; z-index: 1001;
-        border-top: 0.0625rem solid #eee; border-radius: var(--r-lg) var(--r-lg) 0 0;
+        content: ""; position: fixed; bottom: 0; left: 0; right: 0; height: 5.5rem; 
+        background: #fff; z-index: 1001; border-top: 0.0625rem solid #eee; border-radius: var(--r-lg) var(--r-lg) 0 0;
     }
 
     .hero h1 { font-size: 2rem; }
     .main-container { grid-template-columns: 1fr; padding: 0 1rem 2rem; }
-    .activity-card { flex-direction: column; text-align: center; }
-    .activity-card img { width: 100%; height: 10rem; }
-    .map-container { height: 18.75rem; }
+    .activity-card { flex-direction: column; text-align: center; img { width: 100%; height: 10rem; } }
     .footer-content { grid-template-columns: 1fr; }
 }
