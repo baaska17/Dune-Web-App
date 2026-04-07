@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Horse Riding Adventure",
+    "description": "Explore the vast Mongolian steppe on horseback",
+    "price": 50000,
+    "image": "img/Horse Ride.jpg",
+    "link": "Horse.html",
+    "category": "Adventure"
+  },
+  {
+    "id": 2,
+    "title": "Traditional Cuisine",
+    "description": "Savor authentic Mongolian dishes and flavors",
+    "price": 35000,
+    "image": "img/Khorkhog.jpg",
+    "link": "restaurant.html",
+    "category": "Food"
+  },
+  {
+    "id": 3,
+    "title": "Dairy Shop",
+    "description": "Handcrafted traditional dairy products",
+    "price": 15000,
+    "image": "img/Dairy.jpg",
+    "link": "Dairyshop.html",
+    "category": "Shop"
+  }
+]

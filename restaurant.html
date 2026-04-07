@@ -33,9 +33,9 @@
           <span class="active">EN</span>
           <span>MN</span>
         </div>
-        <a href="cart.html" class="cart-icon" style="text-decoration: none;">
-          🛒 <span class="cart-badge">1</span>
-        </a>
+        <div class="cart-icon" id="cart-toggle">
+          🛒 <span class="cart-badge">0</span>
+        </div>
         <a href="room.html" class="book-now-btn btn-gold">Book Now</a>
       </div>
     </header>
@@ -74,14 +74,14 @@
               <article>
                 <figure class="img-container">
                   <img src="img/Khorkhog.jpg" alt="Khorkhog" class="menu-img" />
-                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <button class="add-to-cart add-to-cart-btn-overlay" data-id="201" data-title="Khorkhog" data-price="18000" data-image="img/Khorkhog.jpg">
                     <span class="plus">+</span> Add to Cart
-                  </a>
+                  </button>
                 </figure>
                 <figcaption class="menu-info">
                   <h3>Khorkhog</h3>
                   <p>Traditional Mongolian barbecue with mutton, vegetables, and hot stones</p>
-                  <span class="price">$18</span>
+                  <span class="price">₮18,000</span>
                 </figcaption>
               </article>
             </li>
@@ -90,14 +90,14 @@
               <article>
                 <figure class="img-container">
                   <img src="img/Buuz.jpg" alt="Buuz" class="menu-img" />
-                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <button class="add-to-cart add-to-cart-btn-overlay" data-id="202" data-title="Buuz" data-price="12000" data-image="img/Buuz.jpg">
                     <span class="plus">+</span> Add to Cart
-                  </a>
+                  </button>
                 </figure>
                 <figcaption class="menu-info">
                   <h3>Buuz</h3>
                   <p>Steamed dumplings filled with minced meat and onions</p>
-                  <span class="price">$12</span>
+                  <span class="price">₮12,000</span>
                 </figcaption>
               </article>
             </li>
@@ -106,14 +106,14 @@
               <article>
                 <figure class="img-container">
                   <img src="img/Tsuivan.jpg" alt="Tsuivan" class="menu-img" />
-                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <button class="add-to-cart add-to-cart-btn-overlay" data-id="203" data-title="Tsuivan" data-price="14000" data-image="img/Tsuivan.jpg">
                     <span class="plus">+</span> Add to Cart
-                  </a>
+                  </button>
                 </figure>
                 <figcaption class="menu-info">
                   <h3>Tsuivan</h3>
                   <p>Hand-pulled noodles stir-fried with vegetables and meat</p>
-                  <span class="price">$14</span>
+                  <span class="price">₮14,000</span>
                 </figcaption>
               </article>
             </li>
@@ -123,14 +123,14 @@
                 <figure class="img-container">
                   <span class="badge veg">Vegetarian</span>
                   <img src="img/VegetarianStirfry.jpg" alt="Vegetarian Stir-fry" class="menu-img" />
-                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <button class="add-to-cart add-to-cart-btn-overlay" data-id="204" data-title="Vegetarian Stir-fry" data-price="11000" data-image="img/VegetarianStirfry.jpg">
                     <span class="plus">+</span> Add to Cart
-                  </a>
+                  </button>
                 </figure>
                 <figcaption class="menu-info">
                   <h3>Vegetarian Stir-fry</h3>
                   <p>Mixed seasonal vegetables with traditional Mongolian spices</p>
-                  <span class="price">$11</span>
+                  <span class="price">₮11,000</span>
                 </figcaption>
               </article>
             </li>
@@ -139,14 +139,14 @@
               <article>
                 <figure class="img-container">
                   <img src="img/SuuteiTsai.jpg" alt="Suutei Tsai" class="menu-img" />
-                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <button class="add-to-cart add-to-cart-btn-overlay" data-id="205" data-title="Suutei Tsai" data-price="4000" data-image="img/SuuteiTsai.jpg">
                     <span class="plus">+</span> Add to Cart
-                  </a>
+                  </button>
                 </figure>
                 <figcaption class="menu-info">
                   <h3>Suutei Tsai</h3>
                   <p>Traditional Mongolian milk tea with salt</p>
-                  <span class="price">$4</span>
+                  <span class="price">₮4,000</span>
                 </figcaption>
               </article>
             </li>
@@ -155,14 +155,14 @@
               <article>
                 <figure class="img-container">
                   <img src="img/Airag.jpg" alt="Airag" class="menu-img" />
-                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <button class="add-to-cart add-to-cart-btn-overlay" data-id="206" data-title="Airag" data-price="6000" data-image="img/Airag.jpg">
                     <span class="plus">+</span> Add to Cart
-                  </a>
+                  </button>
                 </figure>
                 <figcaption class="menu-info">
                   <h3>Airag</h3>
                   <p>Fermented mare's milk, a traditional beverage</p>
-                  <span class="price">$6</span>
+                  <span class="price">₮6,000</span>
                 </figcaption>
               </article>
             </li>
@@ -171,14 +171,14 @@
               <article>
                 <figure class="img-container">
                   <img src="img/Boortsog.jpg" alt="Boortsog" class="menu-img" />
-                  <a href="cart.html" class="add-to-cart" style="text-decoration: none;">
+                  <button class="add-to-cart add-to-cart-btn-overlay" data-id="207" data-title="Boortsog" data-price="8000" data-image="img/Boortsog.jpg">
                     <span class="plus">+</span> Add to Cart
-                  </a>
+                  </button>
                 </figure>
                 <figcaption class="menu-info">
                   <h3>Boortsog</h3>
                   <p>Traditional fried dough pastries</p>
-                  <span class="price">$8</span>
+                  <span class="price">₮8,000</span>
                 </figcaption>
               </article>
             </li>
@@ -188,12 +188,29 @@
 
       <section class="about-kitchen section-padding alternate-bg">
         <div class="container small-container">
-          <h2>About Our Restaurant</h2>
+          <h2>About Our Kitchen</h2>
           <p class="intro">Celebrating the rich culinary heritage of Mongolia with traditional methods and authentic recipes</p>
           <p>We source our ingredients locally, supporting nomadic families and ensuring the freshest, highest quality produce. From hearty meat dishes to delicate dairy products, experience the true taste of the Mongolian steppe.</p>
         </div>
       </section>
     </main>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+      <div class="cart-header">
+        <h3>Shopping Cart</h3>
+        <button id="close-cart" class="close-btn">&times;</button>
+      </div>
+      <div id="cart-items" class="cart-content"></div>
+      <div class="cart-footer">
+        <div class="total-price">
+          <span>Total:</span>
+          <span id="cart-total">₮0</span>
+        </div>
+        <button class="btn-gold checkout-btn">Checkout Now</button>
+      </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay"></div>
 
     <footer class="footer">
       <div class="footer-content container">
@@ -214,5 +231,7 @@
         <p>&copy; 2026 Dune Tourist Camp. All rights reserved.</p>
       </div>
     </footer>
+
+    <script src="main.js" type="module"></script>
   </body>
 </html>

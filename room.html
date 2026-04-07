@@ -27,9 +27,9 @@
                 <span class="active">EN</span>
                 <span>MN</span>
             </div>
-            <a href="cart.html" class="cart-icon" style="text-decoration: none;">
+            <div class="cart-icon" id="cart-toggle">
                 🛒 <span class="cart-badge">0</span>
-            </a>
+            </div>
             <a href="room.html" class="book-now-btn btn-gold">Book Now</a>
         </div>
     </header>
@@ -82,14 +82,20 @@
                                     <button class="plus">+</button>
                                 </div>
                             </div>
-                            <a href="cart.html" class="add-to-cart-btn btn-gold" style="text-decoration: none;">🛒 Add to Cart</a>
+                            <button class="add-to-cart-btn-global btn-gold" 
+                                    data-id="301" 
+                                    data-title="Traditional Mongolian Ger" 
+                                    data-price="85000" 
+                                    data-image="img/trade-ger.jpg">
+                                🛒 Add to Cart
+                            </button>
                         </div>
                     </div>
                     <div class="room-price-side">
                         <div class="price-display">
-                            <span class="total-price">$2,380</span>
-                            <span class="per-night">$85 per night</span>
-                            <span class="stay-duration">for 28 nights</span>
+                            <span class="total-price">₮85,000</span>
+                            <span class="per-night">₮85,000 per night</span>
+                            <span class="stay-duration">for 1 night</span>
                         </div>
                         <span class="max-guests">Max 4 guests</span>
                     </div>
@@ -130,14 +136,20 @@
                                     <button class="plus">+</button>
                                 </div>
                             </div>
-                            <a href="cart.html" class="add-to-cart-btn btn-gold" style="text-decoration: none;">🛒 Add to Cart</a>
+                            <button class="add-to-cart-btn-global btn-gold" 
+                                    data-id="302" 
+                                    data-title="Luxury Ger Suite" 
+                                    data-price="145000" 
+                                    data-image="img/ger.jpg">
+                                🛒 Add to Cart
+                            </button>
                         </div>
                     </div>
                     <div class="room-price-side">
                         <div class="price-display">
-                            <span class="total-price">$4,060</span>
-                            <span class="per-night">$145 per night</span>
-                            <span class="stay-duration">for 28 nights</span>
+                            <span class="total-price">₮145,000</span>
+                            <span class="per-night">₮145,000 per night</span>
+                            <span class="stay-duration">for 1 night</span>
                         </div>
                         <span class="max-guests">Max 2 guests</span>
                     </div>
@@ -178,14 +190,20 @@
                                     <button class="plus">+</button>
                                 </div>
                             </div>
-                            <a href="cart.html" class="add-to-cart-btn btn-gold" style="text-decoration: none;">🛒 Add to Cart</a>
+                            <button class="add-to-cart-btn-global btn-gold" 
+                                    data-id="303" 
+                                    data-title="Wooden Tiny House" 
+                                    data-price="120000" 
+                                    data-image="img/wooden-house.webp">
+                                🛒 Add to Cart
+                            </button>
                         </div>
                     </div>
                     <div class="room-price-side">
                         <div class="price-display">
-                            <span class="total-price">$3,360</span>
-                            <span class="per-night">$120 per night</span>
-                            <span class="stay-duration">for 28 nights</span>
+                            <span class="total-price">₮120,000</span>
+                            <span class="per-night">₮120,000 per night</span>
+                            <span class="stay-duration">for 1 night</span>
                         </div>
                         <span class="max-guests">Max 3 guests</span>
                     </div>
@@ -194,21 +212,58 @@
         </div>
     </main>
 
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-content"></div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cart-total">₮0</span>
+            </div>
+            <button class="btn-gold checkout-btn">Checkout Now</button>
+        </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay"></div>
+
     <footer class="footer">
         <div class="footer-content container">
             <div class="footer-section">
                 <h4>LOCATION</h4>
-                <p>Tsenkher Sum, Arkhangay<br />Province, Mongolia</p>
+                <p><a href="https://www.google.com/maps/search/?api=1&query=47.342603,101.779341" target="_blank">Tsenkher Sum, Arkhangay<br />Province, Mongolia</a></p>
             </div>
             <div class="footer-section">
                 <h4>EMAIL</h4>
-                <p>info@dunetouristcamp.com</p>
+                <p><a href="mailto:info@dunetouristcamp.com">info@dunetouristcamp.com</a></p>
             </div>
             <div class="footer-section">
                 <h4>PHONE</h4>
-                <p>+976 1234 5678</p>
+                <p><a href="tel:+97612345678">+976 1234 5678</a></p>
             </div>
         </div>
     </footer>
+
+    <script src="main.js" type="module"></script>
+    <script>
+        // Room Page Specific: Counter logic
+        document.querySelectorAll('.counter').forEach(counter => {
+            const minus = counter.querySelector('.minus');
+            const plus = counter.querySelector('.plus');
+            const countDisplay = counter.querySelector('.count');
+
+            minus.addEventListener('click', () => {
+                let count = parseInt(countDisplay.textContent);
+                if (count > 0) countDisplay.textContent = count - 1;
+            });
+
+            plus.addEventListener('click', () => {
+                let count = parseInt(countDisplay.textContent);
+                countDisplay.textContent = count + 1;
+            });
+        });
+    </script>
 </body>
 </html>
