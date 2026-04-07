@@ -79,10 +79,10 @@
             </div>
 
             <div class="experience-list">
-              <div class="exp-card active" data-id="101" data-title="Sunset Ride - 1 Hour" data-price="50000">
+              <div class="exp-card active" data-id="101" data-title="Sunset Ride - 1 Hour" data-price="35">
                 <div class="exp-header">
                   <h3>Sunset Ride - 1 Hour</h3>
-                  <span class="exp-price">₮50,000</span>
+                  <span class="exp-price">$35</span>
                 </div>
                 <p class="exp-desc">Experience the magical Mongolian sunset on horseback. Perfect for beginners.</p>
                 <div class="exp-meta">
@@ -92,10 +92,10 @@
                 </div>
               </div>
 
-              <div class="exp-card" data-id="102" data-title="Steppe Explorer - 2 Hours" data-price="90000">
+              <div class="exp-card" data-id="102" data-title="Steppe Explorer - 2 Hours" data-price="60">
                 <div class="exp-header">
                   <h3>Steppe Explorer - 2 Hours</h3>
-                  <span class="exp-price">₮90,000</span>
+                  <span class="exp-price">$60</span>
                 </div>
                 <p class="exp-desc">Explore the vast steppe and visit a nearby nomadic family. Includes tea ceremony.</p>
                 <div class="exp-meta">
@@ -105,10 +105,10 @@
                 </div>
               </div>
 
-              <div class="exp-card" data-id="103" data-title="Half Day Adventure" data-price="150000">
+              <div class="exp-card" data-id="103" data-title="Half Day Adventure" data-price="110">
                 <div class="exp-header">
                   <h3>Half Day Adventure</h3>
-                  <span class="exp-price">₮150,000</span>
+                  <span class="exp-price">$110</span>
                 </div>
                 <p class="exp-desc">Full steppe experience with lunch at a traditional nomadic camp. For experienced riders.</p>
                 <div class="exp-meta">
@@ -157,11 +157,11 @@
                 <div class="price-summary">
                   <div class="price-line">
                     <span id="rate-label">Rate per person</span>
-                    <span id="rate-value">₮50,000</span>
+                    <span id="rate-value">$35</span>
                   </div>
                   <div class="total-line">
                     <span>Total</span>
-                    <span id="display-total">₮50,000</span>
+                    <span id="display-total">$35</span>
                   </div>
                 </div>
 
@@ -188,7 +188,7 @@
       <div class="cart-footer">
         <div class="total-price">
           <span>Total:</span>
-          <span id="cart-total">₮0</span>
+          <span id="cart-total">$0</span>
         </div>
         <button class="btn-gold checkout-btn">Checkout Now</button>
       </div>
@@ -217,25 +217,21 @@
 
     <script src="main.js" type="module"></script>
     <script>
-      // Horse Page Specific Logic
       document.querySelectorAll('.exp-card').forEach(card => {
         card.addEventListener('click', () => {
           document.querySelectorAll('.exp-card').forEach(c => c.classList.remove('active'));
           card.classList.add('active');
-          
           const price = card.dataset.price;
-          document.getElementById('rate-value').textContent = '₮' + parseInt(price).toLocaleString();
+          document.getElementById('rate-value').textContent = '$' + price;
           updateTotal();
         });
       });
-
       function updateTotal() {
         const activeCard = document.querySelector('.exp-card.active');
         const count = document.getElementById('people-count').value;
         const total = activeCard.dataset.price * count;
-        document.getElementById('display-total').textContent = '₮' + total.toLocaleString();
+        document.getElementById('display-total').textContent = '$' + total;
       }
-
       document.getElementById('people-count').addEventListener('input', updateTotal);
     </script>
   </body>

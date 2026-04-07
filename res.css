@@ -42,14 +42,14 @@ body {
 #main-dishes:checked ~ main .menu-card,
 #drinks:checked ~ main .menu-card,
 #desserts:checked ~ main .menu-card,
-#white-foods:checked ~ main .menu-card {
+#dairy:checked ~ main .menu-card {
     display: none;
 }
 
 #main-dishes:checked ~ main .menu-card.main-dishes,
 #drinks:checked ~ main .menu-card.drinks,
 #desserts:checked ~ main .menu-card.desserts,
-#white-foods:checked ~ main .menu-card.white-foods,
+#dairy:checked ~ main .menu-card.dairy,
 #all:checked ~ main .menu-card {
     display: flex;
 }
@@ -58,7 +58,7 @@ body {
 #main-dishes:checked ~ main .main-dishes-label,
 #drinks:checked ~ main .drinks-label,
 #desserts:checked ~ main .desserts-label,
-#white-foods:checked ~ main .white-foods-label {
+#dairy:checked ~ main .dairy-label {
     background: var(--primary);
     color: var(--white);
     box-shadow: 0 6px 18px rgba(16,24,32,0.06);
@@ -217,4 +217,3 @@ body {
     .menu-grid { justify-content: center; }
     .menu-card { width: 100%; }
 }
-

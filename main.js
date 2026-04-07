@@ -86,19 +86,19 @@ class Cart {
         if (this.cartItemsContainer) {
             if (this.items.length === 0) {
                 this.cartItemsContainer.innerHTML = `<div class="empty-cart"><p>Your cart is empty</p></div>`;
-                this.cartTotalElement.textContent = '₮0';
+                this.cartTotalElement.textContent = '$0';
             } else {
                 this.cartItemsContainer.innerHTML = this.items.map(item => `
                     <div class="cart-item">
                         <img src="${item.image}" alt="${item.title}">
                         <div class="cart-item-info">
                             <h4>${item.title}</h4>
-                            <p>₮${item.price.toLocaleString()} x ${item.quantity}</p>
+                            <p>$${item.price.toLocaleString()} x ${item.quantity}</p>
                             <button class="remove-item" data-id="${item.id}">Remove</button>
                         </div>
                     </div>
                 `).join('');
-                this.cartTotalElement.textContent = `₮${total.toLocaleString()}`;
+                this.cartTotalElement.textContent = `$${total.toLocaleString()}`;
                 
                 this.cartItemsContainer.querySelectorAll('.remove-item').forEach(btn => {
                     btn.addEventListener('click', () => this.removeItem(parseInt(btn.dataset.id)));
@@ -114,13 +114,13 @@ class Cart {
                     <div class="summary-item-info">
                         <h4>${item.title}</h4>
                         <p>Qty: ${item.quantity}</p>
-                        <span class="summary-item-price">₮${item.price.toLocaleString()}</span>
+                        <span class="summary-item-price">$${item.price.toLocaleString()}</span>
                     </div>
                 </div>
             `).join('');
 
-            this.summarySubtotal.textContent = `₮${total.toLocaleString()}`;
-            this.summaryTotal.textContent = `₮${total.toLocaleString()}`;
+            this.summarySubtotal.textContent = `$${total.toLocaleString()}`;
+            this.summaryTotal.textContent = `$${total.toLocaleString()}`;
         }
     }
 }
@@ -180,7 +180,7 @@ function initRoomPage() {
             `;
             document.querySelectorAll('.room-card').forEach(card => {
                 const perNightPrice = parseInt(card.querySelector('.add-to-cart-btn-global').dataset.price);
-                card.querySelector('.total-price').textContent = `₮${(perNightPrice * nights).toLocaleString()}`;
+                card.querySelector('.total-price').textContent = `$${(perNightPrice * nights).toLocaleString()}`;
                 card.querySelector('.stay-duration').textContent = `for ${nights} nights`;
                 card.querySelector('.add-to-cart-btn-global').dataset.finalPrice = perNightPrice * nights;
                 card.querySelector('.add-to-cart-btn-global').dataset.nights = nights;
@@ -190,9 +190,23 @@ function initRoomPage() {
     }
 }
 
+function initRestaurantFilter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filter = urlParams.get('filter');
+    if (filter) {
+        const radioBtn = document.getElementById(filter);
+        if (radioBtn) {
+            radioBtn.checked = true;
+            const menuSection = document.getElementById('menu');
+            if (menuSection) menuSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initHome();
     initRoomPage();
+    initRestaurantFilter();
 
     const bookRideBtn = document.getElementById('book-ride-btn');
     if (bookRideBtn) {
