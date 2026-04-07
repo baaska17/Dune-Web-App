@@ -48,7 +48,7 @@
         <div class="room-content-grid single-column">
             <div class="room-list">
                 <!-- Room 1 -->
-                <div class="room-card">
+                <div class="room-card" data-max-adults="4">
                     <div class="room-image-side">
                         <span class="badge-available">1 Available</span>
                         <img src="img/trade-ger.jpg" alt="Traditional Mongolian Ger">
@@ -68,15 +68,15 @@
                         <div class="room-controls">
                             <div class="counter-group">
                                 <label>Adults</label>
-                                <div class="counter">
+                                <div class="counter adult-counter">
                                     <button class="minus">-</button>
-                                    <span class="count">2</span>
+                                    <span class="count">1</span>
                                     <button class="plus">+</button>
                                 </div>
                             </div>
                             <div class="counter-group">
                                 <label>Children</label>
-                                <div class="counter">
+                                <div class="counter child-counter">
                                     <button class="minus">-</button>
                                     <span class="count">0</span>
                                     <button class="plus">+</button>
@@ -97,12 +97,12 @@
                             <span class="per-night">₮85,000 per night</span>
                             <span class="stay-duration">for 1 night</span>
                         </div>
-                        <span class="max-guests">Max 4 guests</span>
+                        <span class="max-guests">Max 4 adults</span>
                     </div>
                 </div>
 
                 <!-- Room 2 -->
-                <div class="room-card">
+                <div class="room-card" data-max-adults="2">
                     <div class="room-image-side">
                         <span class="badge-available">2 Available</span>
                         <img src="img/ger.jpg" alt="Luxury Ger Suite">
@@ -122,15 +122,15 @@
                         <div class="room-controls">
                             <div class="counter-group">
                                 <label>Adults</label>
-                                <div class="counter">
+                                <div class="counter adult-counter">
                                     <button class="minus">-</button>
-                                    <span class="count">2</span>
+                                    <span class="count">1</span>
                                     <button class="plus">+</button>
                                 </div>
                             </div>
                             <div class="counter-group">
                                 <label>Children</label>
-                                <div class="counter">
+                                <div class="counter child-counter">
                                     <button class="minus">-</button>
                                     <span class="count">0</span>
                                     <button class="plus">+</button>
@@ -151,12 +151,12 @@
                             <span class="per-night">₮145,000 per night</span>
                             <span class="stay-duration">for 1 night</span>
                         </div>
-                        <span class="max-guests">Max 2 guests</span>
+                        <span class="max-guests">Max 2 adults</span>
                     </div>
                 </div>
 
                 <!-- Room 3 -->
-                <div class="room-card">
+                <div class="room-card" data-max-adults="3">
                     <div class="room-image-side">
                         <span class="badge-available">1 Available</span>
                         <img src="img/wooden-house.webp" alt="Wooden Tiny House">
@@ -176,15 +176,15 @@
                         <div class="room-controls">
                             <div class="counter-group">
                                 <label>Adults</label>
-                                <div class="counter">
+                                <div class="counter adult-counter">
                                     <button class="minus">-</button>
-                                    <span class="count">2</span>
+                                    <span class="count">1</span>
                                     <button class="plus">+</button>
                                 </div>
                             </div>
                             <div class="counter-group">
                                 <label>Children</label>
-                                <div class="counter">
+                                <div class="counter child-counter">
                                     <button class="minus">-</button>
                                     <span class="count">0</span>
                                     <button class="plus">+</button>
@@ -205,7 +205,7 @@
                             <span class="per-night">₮120,000 per night</span>
                             <span class="stay-duration">for 1 night</span>
                         </div>
-                        <span class="max-guests">Max 3 guests</span>
+                        <span class="max-guests">Max 3 adults</span>
                     </div>
                 </div>
             </div>
@@ -248,20 +248,56 @@
 
     <script src="main.js" type="module"></script>
     <script>
-        // Room Page Specific: Counter logic
-        document.querySelectorAll('.counter').forEach(counter => {
-            const minus = counter.querySelector('.minus');
-            const plus = counter.querySelector('.plus');
-            const countDisplay = counter.querySelector('.count');
+        // Room Page Specific: Counter logic with Max Adult limit
+        document.querySelectorAll('.room-card').forEach(card => {
+            const maxAdults = parseInt(card.dataset.maxAdults);
+            
+            // Adult Counter
+            const adultCounter = card.querySelector('.adult-counter');
+            const adultMinus = adultCounter.querySelector('.minus');
+            const adultPlus = adultCounter.querySelector('.plus');
+            const adultDisplay = adultCounter.querySelector('.count');
 
-            minus.addEventListener('click', () => {
-                let count = parseInt(countDisplay.textContent);
-                if (count > 0) countDisplay.textContent = count - 1;
+            const updateAdultButtons = () => {
+                const count = parseInt(adultDisplay.textContent);
+                adultPlus.disabled = count >= maxAdults;
+                adultPlus.style.opacity = count >= maxAdults ? "0.5" : "1";
+                adultPlus.style.cursor = count >= maxAdults ? "not-allowed" : "pointer";
+            };
+
+            adultMinus.addEventListener('click', () => {
+                let count = parseInt(adultDisplay.textContent);
+                if (count > 1) {
+                    adultDisplay.textContent = count - 1;
+                    updateAdultButtons();
+                }
             });
 
-            plus.addEventListener('click', () => {
-                let count = parseInt(countDisplay.textContent);
-                countDisplay.textContent = count + 1;
+            adultPlus.addEventListener('click', () => {
+                let count = parseInt(adultDisplay.textContent);
+                if (count < maxAdults) {
+                    adultDisplay.textContent = count + 1;
+                    updateAdultButtons();
+                }
+            });
+
+            // Initial check
+            updateAdultButtons();
+
+            // Child Counter (Unlimited)
+            const childCounter = card.querySelector('.child-counter');
+            const childMinus = childCounter.querySelector('.minus');
+            const childPlus = childCounter.querySelector('.plus');
+            const childDisplay = childCounter.querySelector('.count');
+
+            childMinus.addEventListener('click', () => {
+                let count = parseInt(childDisplay.textContent);
+                if (count > 0) childDisplay.textContent = count - 1;
+            });
+
+            childPlus.addEventListener('click', () => {
+                let count = parseInt(childDisplay.textContent);
+                childDisplay.textContent = count + 1;
             });
         });
     </script>
