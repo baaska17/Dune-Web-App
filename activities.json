@@ -28,23 +28,11 @@
     "title": "Dairy Shop",
     "description": "Handcrafted traditional dairy products made from fresh nomadic milk",
     "price": 10,
-    "image": "img/Dairy.jpg",
+    "image": "img/urum.jpg",
     "link": "restaurant.html?filter=dairy",
     "category": "Shop",
     "rating": 4.5,
     "tags": ["dairy", "traditional", "shop"],
-    "featured": false
-  },
-  {
-    "id": 4,
-    "title": "Stargazing Night",
-    "description": "Discover the magical night sky far from city lights on the open steppe",
-    "price": 25,
-    "image": "img/Horse Ride.jpg",
-    "link": "Horse.html",
-    "category": "Adventure",
-    "rating": 5.0,
-    "tags": ["night", "stars", "nature"],
     "featured": true
   }
 ]

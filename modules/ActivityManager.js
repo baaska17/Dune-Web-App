@@ -61,15 +61,9 @@ export class ActivityManager {
             <article class="activity-card">
                 <img src="${item.image}" alt="${item.title}" />
                 <div class="activity-info">
-                    <div class="activity-header">
-                        <span class="activity-category">${item.category}</span>
-                        <span class="activity-rating">★ ${item.rating}</span>
-                    </div>
                     <h4>${item.title}</h4>
                     <p>${item.description}</p>
-                    <p class="activity-tags">${item.tags.join(' • ')}</p>
                     <div class="activity-footer">
-                        <span class="activity-price">$${item.price}<small>/person</small></span>
                         <a href="${item.link}" class="btn-gold">Discover ›</a>
                     </div>
                 </div>

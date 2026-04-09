@@ -86,7 +86,7 @@
                                     data-title="Traditional Mongolian Ger" 
                                     data-price="85" 
                                     data-image="img/trade-ger.jpg">
-                                🛒 Add to Cart
+                                Add to Cart
                             </button>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                     <div class="room-image-side">
                         <span class="badge-available">2 Available</span>
                         <img src="img/ger.jpg" alt="Luxury Ger Suite">
-                        <a class="room-details-btn">Room Details</a>
+                        <a href="luxury-ger-details.html" class="room-details-btn">Room Details</a>
                     </div>
                     <div class="room-info-side">
                         <div class="room-details-top">
@@ -140,7 +140,7 @@
                                     data-title="Luxury Ger Suite" 
                                     data-price="145" 
                                     data-image="img/ger.jpg">
-                                🛒 Add to Cart
+                                Add to Cart
                             </button>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                     <div class="room-image-side">
                         <span class="badge-available">1 Available</span>
                         <img src="img/wooden-house.webp" alt="Wooden Tiny House">
-                        <a class="room-details-btn">Room Details</a>
+                        <a href="wooden-house-details.html" class="room-details-btn">Room Details</a>
                     </div>
                     <div class="room-info-side">
                         <div class="room-details-top">
@@ -194,7 +194,7 @@
                                     data-title="Wooden Tiny House" 
                                     data-price="120" 
                                     data-image="img/wooden-house.webp">
-                                🛒 Add to Cart
+                                Add to Cart
                             </button>
                         </div>
                     </div>
@@ -215,7 +215,10 @@
     <div id="cart-drawer" class="cart-drawer">
         <div class="cart-header">
             <h3>Shopping Cart</h3>
-            <button id="close-cart" class="close-btn">&times;</button>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button id="clear-cart" class="remove-item" style="color: #ff4d4d; font-weight: 600; cursor: pointer; border: none; background: none;">Remove All</button>
+                <button id="close-cart" class="close-btn">&times;</button>
+            </div>
         </div>
         <div id="cart-items" class="cart-content"></div>
         <div class="cart-footer">
@@ -284,7 +287,7 @@
             });
             childPlus.addEventListener('click', () => {
                 let count = parseInt(childDisplay.textContent);
-                childDisplay.textContent = count + 1;
+                if (count > 0) childDisplay.textContent = count + 1;
             });
         });
     </script>

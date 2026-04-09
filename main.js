@@ -1,6 +1,5 @@
 /**
  * Dune Tourist Camp — Main Entry Point
- * Модуль хэлбэрээр зохион байгуулсан. ES Modules (import/export) ашиглана.
  */
 
 import { Cart } from './modules/Cart.js';
@@ -9,35 +8,56 @@ import { ActivityManager } from './modules/ActivityManager.js';
 // ── Глобал Cart instance ──────────────────────────────────────────────────────
 const cart = new Cart();
 
+// ── Lightbox (Зураг томруулах) функц ──────────────────────────────────────────
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const galleryImages = document.querySelectorAll('.room-gallery img');
+
+    if (!lightbox || !lightboxImg) return;
+
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Scroll зогсоох
+        });
+    });
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = ''; // Scroll буцааж нээх
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    
+    // Дэвсгэр дээр дарахад хаах
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // ESC дарахад хаах
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+    });
+}
+
 // ── Home хуудас: JSON татаж, DOM-д харуулна ──────────────────────────────────
 async function initHome() {
     const container = document.getElementById('activities-container');
     if (!container) return;
 
     try {
-        // fetch ашиглан JSON өгөгдлийг татна
         const manager = new ActivityManager('activities.json');
         await manager.load();
-
-        // Статистик харуулах хэсэг нэмэх
-        const statsEl = document.createElement('div');
-        statsEl.id = 'activity-stats';
-        container.before(statsEl);
-        manager.renderStats(statsEl);
-
-        // Featured үйл ажиллагааг filter-ээр авч харуулна
         const featured = manager.getFeatured();
         manager.render(container, featured);
-
-        // Ангиллын товчнуудыг бүтээж ажиллуулна
-        buildCategoryFilter(manager, container);
-
     } catch (err) {
         container.innerHTML = `<p class="error">Failed to load experiences: ${err.message}</p>`;
         console.error(err);
     }
 
-    // Захиалгын хайлтын товч
     const searchBtn = document.querySelector('.search-btn');
     if (searchBtn) {
         searchBtn.addEventListener('click', (e) => {
@@ -51,41 +71,6 @@ async function initHome() {
             }
         });
     }
-}
-
-// Ангилалын filter товчнуудыг DOM-д нэмж, filter/map ашиглана
-function buildCategoryFilter(manager, container) {
-    // map ашиглан бүх ангилалыг жагсааж, filter-ээр давхардлыг арилгана
-    const categories = ['All', ...manager.activities
-        .map(a => a.category)
-        .filter((cat, i, arr) => arr.indexOf(cat) === i)
-    ];
-
-    const filterBar = document.createElement('div');
-    filterBar.className = 'category-filter';
-
-    // map + join ашиглан товчнуудыг бүтээнэ
-    filterBar.innerHTML = categories.map(cat => `
-        <button class="filter-btn ${cat === 'All' ? 'active' : ''}" data-category="${cat}">
-            ${cat}
-        </button>
-    `).join('');
-
-    container.before(filterBar);
-
-    filterBar.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const selected = btn.dataset.category;
-            const filtered = selected === 'All'
-                ? manager.getFeatured()
-                : manager.getByCategory(selected);
-
-            manager.render(container, filtered);
-        });
-    });
 }
 
 // ── Room хуудас ───────────────────────────────────────────────────────────────
@@ -140,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHome();
     initRoomPage();
     initRestaurantFilter();
+    initLightbox();
 
     // Horse Ride захиалах товч
     const bookRideBtn = document.getElementById('book-ride-btn');
@@ -157,8 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Overlay дахь "Add to Cart" товчнууд
-    document.querySelectorAll('.add-to-cart-btn-overlay').forEach(btn => {
+    // Overlay болон Room Detail дахь "Add to Cart" / "Book Now" товчнууд
+    document.querySelectorAll('.add-to-cart-btn-overlay, .room-book-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             cart.addItem({

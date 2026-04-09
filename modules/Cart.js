@@ -16,6 +16,7 @@ export class Cart {
         this.cartOverlay = document.getElementById('cart-overlay');
         this.cartToggle = document.getElementById('cart-toggle');
         this.closeCartBtn = document.getElementById('close-cart');
+        this.clearCartBtn = document.getElementById('clear-cart');
         this.cartItemsContainer = document.getElementById('cart-items');
         this.cartTotalElement = document.getElementById('cart-total');
         this.cartBadge = document.querySelector('.cart-badge');
@@ -30,11 +31,16 @@ export class Cart {
         if (this.cartToggle) this.cartToggle.addEventListener('click', (e) => { e.preventDefault(); this.openCart(); });
         if (this.closeCartBtn) this.closeCartBtn.addEventListener('click', () => this.closeCart());
         if (this.cartOverlay) this.cartOverlay.addEventListener('click', () => this.closeCart());
+        if (this.clearCartBtn) this.clearCartBtn.addEventListener('click', () => this.clearCart());
 
         const checkoutBtn = document.querySelector('.checkout-btn');
         if (checkoutBtn) {
             checkoutBtn.addEventListener('click', () => {
-                window.location.href = 'checkout.html';
+                if (this.items.length > 0) {
+                    window.location.href = 'checkout.html';
+                } else {
+                    alert('Your cart is empty');
+                }
             });
         }
     }
@@ -76,8 +82,15 @@ export class Cart {
         this.save();
     }
 
+    clearCart() {
+        if (this.items.length === 0) return;
+        if (confirm('Are you sure you want to clear your cart?')) {
+            this.items = [];
+            this.save();
+        }
+    }
+
     render() {
-        // reduce ашиглан нийт тоо болон нийт үнэ тооцоолно
         const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
         const total = this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
@@ -85,18 +98,24 @@ export class Cart {
 
         if (this.cartItemsContainer) {
             if (this.items.length === 0) {
-                this.cartItemsContainer.innerHTML = `<div class="empty-cart"><p>Your cart is empty</p></div>`;
+                this.cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-icon">👜</div>
+                        <p>Your cart is empty</p>
+                        <span>Add items to get started</span>
+                    </div>`;
                 if (this.cartTotalElement) this.cartTotalElement.textContent = '$0';
+                if (this.clearCartBtn) this.clearCartBtn.style.display = 'none';
             } else {
-                // map + join ашиглан cart item-уудыг HTML болгоно
+                if (this.clearCartBtn) this.clearCartBtn.style.display = 'block';
                 this.cartItemsContainer.innerHTML = this.items.map(item => `
                     <div class="cart-item">
                         <img src="${item.image}" alt="${item.title}">
                         <div class="cart-item-info">
                             <h4>${item.title}</h4>
                             <p>$${item.price.toLocaleString()} x ${item.quantity}</p>
-                            <button class="remove-item" data-id="${item.id}">Remove</button>
                         </div>
+                        <button class="remove-item" data-id="${item.id}" title="Remove item">🗑️</button>
                     </div>
                 `).join('');
                 if (this.cartTotalElement) this.cartTotalElement.textContent = `$${total.toLocaleString()}`;
