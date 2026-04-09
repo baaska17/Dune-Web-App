@@ -2,28 +2,49 @@
   {
     "id": 1,
     "title": "Horse Riding Adventure",
-    "description": "Explore the vast Mongolian steppe on horseback",
+    "description": "Explore the vast Mongolian steppe on horseback with experienced guides",
     "price": 35,
     "image": "img/Horse Ride.jpg",
     "link": "Horse.html",
-    "category": "Adventure"
+    "category": "Adventure",
+    "rating": 4.9,
+    "tags": ["outdoor", "nature", "horses"],
+    "featured": true
   },
   {
     "id": 2,
     "title": "Traditional Cuisine",
-    "description": "Savor authentic Mongolian dishes and flavors",
+    "description": "Savor authentic Mongolian dishes and flavors prepared by local chefs",
     "price": 18,
     "image": "img/Khorkhog.jpg",
     "link": "restaurant.html",
-    "category": "Food"
+    "category": "Food",
+    "rating": 4.7,
+    "tags": ["food", "culture", "authentic"],
+    "featured": true
   },
   {
     "id": 3,
     "title": "Dairy Shop",
-    "description": "Handcrafted traditional dairy products",
+    "description": "Handcrafted traditional dairy products made from fresh nomadic milk",
     "price": 10,
     "image": "img/Dairy.jpg",
     "link": "restaurant.html?filter=dairy",
-    "category": "Shop"
+    "category": "Shop",
+    "rating": 4.5,
+    "tags": ["dairy", "traditional", "shop"],
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Stargazing Night",
+    "description": "Discover the magical night sky far from city lights on the open steppe",
+    "price": 25,
+    "image": "img/Horse Ride.jpg",
+    "link": "Horse.html",
+    "category": "Adventure",
+    "rating": 5.0,
+    "tags": ["night", "stars", "nature"],
+    "featured": true
   }
 ]

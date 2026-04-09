@@ -416,6 +416,116 @@ body {
     font-size: 0.8rem;
 }
 
+/*
+   =========================================
+   10. DYNAMIC ACTIVITY SECTION STYLES
+   =========================================
+*/
+
+/* Stats bar — reduce + join-ээр бүтээсэн мэдээллийн мөр */
+#activity-stats {
+    margin-bottom: 1rem;
+}
+
+.stats-bar {
+    background: rgba(197, 160, 89, 0.15);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    border-radius: var(--r-md);
+    padding: 0.6rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--dark);
+}
+
+.stats-bar strong { color: var(--primary); }
+.stats-tags { color: var(--muted); font-style: italic; }
+
+/* Category filter buttons — map + join-ээр бүтээсэн товчнууд */
+.category-filter {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.filter-btn {
+    background: #fff;
+    border: 1.5px solid #ddd;
+    color: var(--dark);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--r-pill);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+/* Activity card extras */
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.activity-category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    color: var(--primary);
+    background: rgba(197, 160, 89, 0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--r-pill);
+}
+
+.activity-rating {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #f0a500;
+}
+
+.activity-tags {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem !important;
+}
+
+.activity-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.activity-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.activity-price small {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.no-results, .error {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
 /* Mobile Responsive for Cart */
 @media (max-width: 480px) {
     .cart-drawer {
